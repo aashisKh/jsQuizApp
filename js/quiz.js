@@ -77,6 +77,7 @@ function timer (){
 }
 var time;
 function runTimer(){
+   document.getElementById('circle').style.backgroundColor = "green";
    num = 61;
    time = setInterval(timer,1000);
 }
