@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/custom.css">
+    <link rel="icon" type="image/x-icon" href="./quiz1.png">
+    <title>Quiz</title>
+</head>
+<body>
+
+
+        <div id="mainDiv">
+
+            <div id="questionDiv" >
+              <p><h4 id="questions"></h4></p>
+              <div class="panel panel-default" id="panel" >
+                  <div class="panel-body">
+                    <span id="correctText">Basic example</span>
+                  </div>
+                </div>
+          </div>
+
+          <div class="col-md-12 ">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-4">
+              <button id="choice1" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>             
+            </div>    
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+              <button id="choice2" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>
+            </div>
+          </div> 
+          <div class="col-md-12">
+            <div class="col-md-5"></div>
+            <div class="col-md-1">
+           <div id="circle"><label id="timer"></label></div> 
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        
+          <div class="col-md-12 ">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-4">
+              <button id="choice3" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>             
+            </div>    
+            <div class="col-md-3"></div>
+            <div class="col-md-4">
+              <button id="choice4" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>
+            </div>
+          </div> 
+                     
+            
+           
+
+
+          
+            
+
+            <div class="col-md-12" id="scorePanel">
+                <div class="col-md-10"></div>
+
+                <div class="col-md-2">
+                    <button id="nextQuestion" class="btn btn-success" >Next</button>
+                </div>
+                
+            </div>
+            
+            <div id="scoreBoard" style="margin-top: 0px;">
+              <div class="panel " style="background-color: pink; color:red;">
+                <div class="panel-body">
+                  <label> The quiz is over.. </label>
+                </div>
+              </div>
+               
+                    <div class="panel " >
+                        <div class="panel-body">
+                         <label> Total Questions :-  <span id="totalQuestion"> </span></label>
+                        </div>
+                      </div>
+               
+                <div class="panel " >
+                    <div class="panel-body">
+                      <label> Questions Solved By You :-  <span id="solvedQuestion"> </span></label>
+                    </div>
+                  </div>
+                  <div class="panel " >
+                    <div class="panel-body">
+                      <label> Your Score :-  <span id="finalScore"> </span></label>
+                    </div>
+                  </div>
+                  <div class="panel " >
+                    <div class="panel-body">
+                      <label>You Took    <span id="getminutes"> </span> Minutes To Finish The Quiz..</label>
+                    </div>
+                  </div>
+                <button class="btn btn-success" id="restartQuiz">Restart Quiz</button>
+
+
+                
+
+
+   
+   
+ 
+    <script src="./js/quiz.js"></script>
+
+</body>
+
+</html>
