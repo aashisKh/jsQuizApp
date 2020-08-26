@@ -108,7 +108,7 @@ h4 {
     display : none;
 }
 #circle {
-    
+    position : absolute;
     background-color:green;
     height: 60px;
     width: 60px;
