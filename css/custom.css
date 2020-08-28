@@ -1,5 +1,5 @@
 body{
-    overflow-x : hidden;
+    overflow-x : scroll;
     overflow-y : scroll;
     padding : 0px;
     margin : 0px;
@@ -108,7 +108,7 @@ h4 {
     display : none;
 }
 #circle {
-    position : absolute;
+    
     background-color:green;
     height: 60px;
     width: 60px;
@@ -117,4 +117,114 @@ h4 {
     text-align: center;
     padding-top : 23px;
     color : white;
+    position: relative;
+   
+   
 }
+
+#quizOver {
+    background-color: pink;
+     color:red;
+}
+
+@media only screen and (max-width: 370px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 30px !important;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+  }
+
+
+  @media only screen and (max-width: 420px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 40px;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 20px;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+  }
+
+
+  @media only screen and (max-width: 770px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 120px !important;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 60px !important;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+    .col-md-2 {
+        margin-top : 10px;
+        margin-left:20px !important;
+        float : left;
+    }
+  }
+
+  @media only screen and (max-width: 280px) {
+    #circle{
+        margin-top :0px;
+        margin-bottom: 100px;
+        margin-left: 10px !important;
+        position: absolute !important;
+    }
+    .col-xs-10{
+        padding-top: 20px;
+        padding-bottom: 0px;
+        margin-left: -35px;
+        height: 100px;
+    }
+    .col-md-2 {
+        margin-top : 10px;
+        margin-left:20px !important;
+        float : left;
+    }
+  }
