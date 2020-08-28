@@ -1,4 +1,6 @@
 
+//Declaring the variables,arrays and objects...
+
 
 let questionArray = [
    "1. What is the height of mount everest ?",
@@ -29,16 +31,23 @@ let correctAnswerList = [
 ]; 
 
 
-
+let correctAnswerCounter = 0;
+let wrongAnswerCounter = 0;
 let score = 0;
 // let scoreText = document.getElementById('score');
 var panelText = document.getElementById('correctText');
 let questionCounter = 0;
-let correctAnswerCounter = 0;
+let solvedQuestionAnswerCounter = 0;
 let question =  document.getElementById('questions');
 let oldDate = new Date();
 let odlMinute = oldDate.getMinutes();
+var num = 61;
 
+
+//End of Variable declarataion... 
+
+
+// First Setup of document 
 function start(){
    question.innerHTML =   questionArray[0];
    for( let i = 0; i <= 3; i++ )
@@ -47,7 +56,11 @@ function start(){
 }
 }
 start();
-var num = 61;
+
+// End of document setup..
+
+//Timer setup function
+
 function timer (){
    let timerText = document.getElementById('timer');
    let circle = document.getElementById('circle');
@@ -60,10 +73,7 @@ function timer (){
       }
     }
         num = num-1; 
-      //   if(num <= 20)
-      //   {
 
-      //   }
   	if(num == 0)
   	{
        
@@ -77,14 +87,16 @@ function timer (){
 }
 var time;
 function runTimer(){
-   document.getElementById('circle').style.backgroundColor = "green";
    num = 61;
+   document.getElementById('circle').style.backgroundColor = "green";
    time = setInterval(timer,1000);
 }
 runTimer();
 
 
+// End of timer setup function ...
 
+//function linking to new questions and choice..
 
 
 document.getElementById('nextQuestion').addEventListener('click',function(){
@@ -92,9 +104,7 @@ document.getElementById('nextQuestion').addEventListener('click',function(){
       displayScoreBoard("block","none","none","none","none");
       displayProgress();
       
-      // questionAlert();
-      // document.getElementById('nextQuestion').disabled = true;
-      // disableButton (true);
+
    }
    else {
 
@@ -115,13 +125,15 @@ document.getElementById('nextQuestion').addEventListener('click',function(){
    
    disableNextButton("none");
    disableButton (false);
-   // for( let i = 1; i<= 4; i++)
-   // {
-   //   document.getElementById('choice'+(i)).disabled = false;
-   // }
+
   
 });
 
+
+ // End of function linking ...
+
+
+//function to check if the choice is correct or not ...
 
 function checkCorrectAnswer(value,ids){
    clearInterval(time);
@@ -145,44 +157,45 @@ function checkCorrectAnswer(value,ids){
        
        disableNextButton("block");
        disableButton (true);
-      //  for( let i = 1; i<= 4; i++)
-      //  {
-      //    document.getElementById('choice'+(i)).disabled = true;
-      //  }
-      
-      // console.log(value);
+
 }
 
+// End of function...
+
+
+//Execute this function if the choice is correct...
 
 
 function alertRightText(){
 
     panelText.innerHTML = "The answer is correct..";
-   // var panelBox = document.getElementById('panel');
-   
-   // panelBox.style.backgroundColor = "lightgreen";
-   // panelBox.style.color = "green";
-   // panelBox.style.display = "block";
+
     score = score + 10;
    // scoreText.innerHTML = score;
   panel( "lightgreen","green","block");
+  solvedQuestionAnswerCounter++;
   correctAnswerCounter++;
 
 
 }
 
+// End of function ..
+
+// Execute this function if the choice is incorrect ...
 
 function alertWrongText(){
     panelText.innerHTML = "The answer is incorrect..";
-   // var panelBox = document.getElementById('panel');
-   // panelBox.style.backgroundColor = "pink";
-   // panelBox.style.color = "red";
-   // panelBox.style.display = "block";
+
    score = score - 10;
    // scoreText.innerHTML = score;
    panel( "pink","red","block");
-   correctAnswerCounter++;
+   solvedQuestionAnswerCounter++;
+   wrongAnswerCounter++;
 }
+
+// End of function ..
+
+// Function to display warning and success ..
 
 function panel(color1,color2,displayBlock){
    var panelBox = document.getElementById('panel');
@@ -193,16 +206,20 @@ function panel(color1,color2,displayBlock){
 
 }
 
+// End of the function ..
+
+// Run function when the quiz is over ..
+
 function questionAlert() {
    var panelText = document.getElementById('correctText').innerHTML = "The quiz is over";
-   // var panelBox = document.getElementById('panel');
-   // panelBox.style.backgroundColor = "pink";
-   // panelBox.style.color = "red";
-   // panelBox.style.display = "block";
+
    panel( "pink","red","block",score);
 
 }
 
+// End of the function ..
+
+// Execute function when one choice button is clicked .. 
 
 function disableButton (getBoolean)
 {
@@ -213,6 +230,10 @@ function disableButton (getBoolean)
    }
 
 }
+
+// End of the function ..
+
+// Execute funtion to display and hide the  elements to show score at last ..
 
 function displayScoreBoard(block,none,none,none,none){
    let newDate = new Date();
@@ -228,37 +249,84 @@ function displayScoreBoard(block,none,none,none,none){
       document.getElementById("choice"+(i)).style.display = none;
    }
    document.getElementById("getminutes").innerHTML = timeDifference;
-
-
-
-   
-
 }
+
+// End of the function .. 
+
+// Execute function when choice button is clicked ...
 
 
 function disableNextButton(nextQuestion){
    document.getElementById('nextQuestion').style.display = nextQuestion;
 }
 
+// End of the function ..
+
+
+// Execute function to show the progress ... 
 
 function displayProgress(){
    document.getElementById("totalQuestion").innerHTML = '( '+questionArray.length +" )";
-   document.getElementById("solvedQuestion").innerHTML = "( "+correctAnswerCounter + " / "+ questionArray.length +" )";
+   document.getElementById("solvedQuestion").innerHTML = "( "+solvedQuestionAnswerCounter + " / "+ questionArray.length +" )";
+   document.getElementById('correctAnswer').innerHTML = correctAnswerCounter;
+   document.getElementById('wrongAnswer').innerHTML = wrongAnswerCounter;
    let finalScore = document.getElementById("finalScore");
    finalScore.innerHTML = "( "+score +" )";
+   checkPercentage();
+
 }
+
+// End of the function .. 
+
+
+// Execute the function when quiz restart button is clicked .. 
 
 document.getElementById("restartQuiz").addEventListener('click',function(){
    location.reload();
-   // displayScoreBoard("none","block","block","block","block");
-   // start();
+
 });
 
 
+// End of the function .. 
 
 
+// Check the percentage 
+
+function checkPercentage(){
+   let showpercentage  = document.getElementById('showpercentage');
+   let progress = document.getElementById('showProgress');
+   let yourPercentage = document.getElementById('yourPercentage');
+   let percentage = (correctAnswerCounter / questionArray.length) * 100;
+
+   if(percentage < 40 ){
+           progress.innerHTML = "Failed !! Study Hard..";
+           yourPercentage.style.backgroundColor = "pink";
+           yourPercentage.style.color = "red";
+           showpercentage.innerHTML = "( " + percentage +"% )";
+           showpercentage.style.color = "red";
+           
+   }
+   else if (percentage > 40 && percentage < 80){
+      progress.innerHTML = "Good !! Keep It Up";
+      yourPercentage.style.backgroundColor = "blue";
+      yourPercentage.style.color = "white";
+      showpercentage.innerHTML = "( " + percentage +"% )";
+      showpercentage.style.color = "white";
+   }
+   else  {
+      progress.innerHTML = "Excellent ...";
+      yourPercentage.style.backgroundColor = "lightgreen";
+      yourPercentage.style.color = "green";
+      showpercentage.innerHTML = "( " + percentage +"% )";
+      showpercentage.style.color = "green";
+   }
+ 
+
+   
+}
 
 
+// End of the function ...
 
 
 
