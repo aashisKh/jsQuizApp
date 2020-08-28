@@ -15,7 +15,7 @@
 
         <div id="mainDiv">
 
-            <div id="questionDiv" >
+            <div id="questionDiv">
               <p><h4 id="questions"></h4></p>
               <div class="panel panel-default" id="panel" >
                   <div class="panel-body">
@@ -26,11 +26,11 @@
 
           <div class="col-md-12 ">
             <!-- <div class="col-md-2"></div> -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-24">
               <button id="choice1" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>             
             </div>    
             <div class="col-md-3"></div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-24">
               <button id="choice2" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>
             </div>
           </div> 
@@ -44,11 +44,11 @@
         
           <div class="col-md-12 ">
             <!-- <div class="col-md-2"></div> -->
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-24">
               <button id="choice3" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>             
             </div>    
             <div class="col-md-3"></div>
-            <div class="col-md-4">
+            <div class="col-md-4 col-xs-24">
               <button id="choice4" class="choiceButton" onclick = "checkCorrectAnswer(this.innerText,id)" ></button>
             </div>
           </div> 
@@ -69,10 +69,15 @@
                 
             </div>
             
-            <div id="scoreBoard" style="margin-top: 0px;">
-              <div class="panel " style="background-color: pink; color:red;">
+            <div id="scoreBoard" >
+              <div class="panel " id="quizOver">
                 <div class="panel-body">
                   <label> The quiz is over.. </label>
+                </div>
+              </div>
+              <div class="panel "  id="yourPercentage">
+                <div class="panel-body">
+                  <label id="showProgress">  </label><span style="float:right;" id="showpercentage"></span>
                 </div>
               </div>
                
@@ -89,6 +94,16 @@
                   </div>
                   <div class="panel " >
                     <div class="panel-body">
+                      <label> Number of correct Answers :-  <span id="correctAnswer"> </span></label>
+                    </div>
+                  </div>
+                  <div class="panel " >
+                    <div class="panel-body">
+                      <label> Number of wrong Answers :-  <span id="wrongAnswer"> </span></label>
+                    </div>
+                  </div>
+                  <div class="panel " >
+                    <div class="panel-body">
                       <label> Your Score :-  <span id="finalScore"> </span></label>
                     </div>
                   </div>
@@ -98,7 +113,7 @@
                     </div>
                   </div>
                 <button class="btn btn-success" id="restartQuiz">Restart Quiz</button>
-
+              </div>
 
                 
 
